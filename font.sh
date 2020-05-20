@@ -7,8 +7,10 @@ git reset --hard origin/master
 git clean -f
 echo "拉取新代码"
 git pull origin master
+echo "下载第三方包"
+yarn
 echo "编译build"
-npm run build
+yarn build
 echo "删除nginx静态资源"
 cd $NGINX_HTML
 rm -rf *
