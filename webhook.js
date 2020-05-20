@@ -7,7 +7,7 @@ const { spawn } = require('child_process');
 const SECRET = '123456';
 //生成签名算法
 //根据SECRET字符串使用哈希算法生成十六进制的新的字符串
-const sigh = (body) => `sha1=` + cryto.createHmac('sha1', SECRET).update(body).digest('hex');
+const sign = (body) => `sha1=` + cryto.createHmac('sha1', SECRET).update(body).digest('hex');
 
 const server = http.createServer(function (req, res) {
   //判断github发送的是不是post 是不是webhook发送的请求
