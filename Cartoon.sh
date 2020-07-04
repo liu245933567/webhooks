@@ -14,4 +14,4 @@ echo "删除nginx静态资源"
 cd $NGINX_HTML
 rm -rf *
 echo "移动打包后的静态资源"
-cp -r /usr/project/font/dist/* ../html/
+cp -r /usr/project/Cartoon/dist/* ../html/
