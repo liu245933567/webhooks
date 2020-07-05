@@ -22,6 +22,7 @@ const server = http.createServer(function (req, res) {
       buffers.push(buffer);
     })
     req.on('end', (buffer) => {
+      console.log('走到这里1');
       const body = Buffer.concat(buffers);
       //github传的值请求事件类型：push事件
       let event = req.headers['x-github-event'];
@@ -31,15 +32,18 @@ const server = http.createServer(function (req, res) {
         //sign不相等 直接返回错误
         return res.end('Not Allowed');
       }
+      console.log('走到这里2');
       //sign相同 执行同意请求
       //设置github请求的请求头，设置返回数据的格式为json
       res.setHeader('Content-Type', 'application/json');
       //返回通知github请求已经成功
       res.end(JSON.stringify({ ok: true }));
+      console.log('走到这里3');
       console.log('JSON.parse(body)', JSON.parse(body));
-
+      console.log('走到这里4');
       //自动化部署
       if (event == 'push') {
+        console.log('走到这里5');
         const payload = JSON.parse(body);
         const name = './' + payload.repository.name + '.sh'
         //开启子进程自动执行对应的sh部署脚本，提交back就执行 sh back.sh 的子进程
