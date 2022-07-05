@@ -5,10 +5,10 @@ NGINX_HTML='/www/server/nginx/html'
 
 cd $WORK_PATH
 echo "先清除老代码"
-git reset --hard origin/master
+git reset --hard origin/main
 git clean -f
 echo "拉取新代码"
-git pull origin master
+git pull origin main
 echo "下载第三方包"
 pnpm install
 echo "编译build"
@@ -18,3 +18,4 @@ cd $NGINX_HTML
 rm -rf *
 echo "移动打包后的静态资源"
 cp -r $DIST_PATH/* ../html/
+
