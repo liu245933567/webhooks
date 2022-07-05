@@ -1,6 +1,6 @@
 #!/bin/bash 
-WORK_PATH='/root/my-product/webhooks'
-DIST_PATH='/root/my-product/webhooks/dist'
+WORK_PATH='/root/my-product/blog'
+DIST_PATH='/root/my-product/blog/dist'
 NGINX_HTML='/www/server/nginx/html'
 
 cd $WORK_PATH
